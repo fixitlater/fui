@@ -37,5 +37,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Inspired by:
-* **React** - [React Home](https://reactjs.org/)
-* **David Gilbertson** - [React app to VanillaJS](https://hackernoon.com/how-i-converted-my-react-app-to-vanillajs-and-whether-or-not-it-was-a-terrible-idea-4b14b1b2faff)
+  * **React** - [React Home](https://reactjs.org/)
+  * **David Gilbertson** - [React app to VanillaJS](https://hackernoon.com/how-i-converted-my-react-app-to-vanillajs-and-whether-or-not-it-was-a-terrible-idea-4b14b1b2faff)
