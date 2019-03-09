@@ -1,0 +1,99 @@
+.card {
+	border: 1px solid black;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+	border-radius: 7px;
+	background: #3c3d3e;
+	color: #e6e6e6;
+	width: 400px;
+	padding: 10px;
+	display: inline-block;
+	margin: 18px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+}
+
+.card-xs {
+	width: 200px;
+}
+
+.card-sm {
+	width: 300px;
+}
+
+.card-md {
+	width: 400px
+}
+
+.card-lg {
+	width: 570px;
+}
+
+.card-xl {
+	width: 800px;
+}
+
+.card-header {
+	margin-bottom: 30px;
+}
+
+.card-body {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.card-info {
+	text-align: center;
+}
+
+.card-footer {
+	margin-top: auto;
+	display: flex;
+}
+
+.card-info-primary {
+	font-size: 35px;
+	min-height: 35px;
+
+	/* restrict to one line */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.card-info-secondary {
+	font-size: 14px;
+	min-height: 14px;
+}
+
+.card-details {
+	display: flex;
+	justify-content: space-around;
+}
+
+.card-detail-icon-wrapper {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.card-detail-icon-count {
+	text-align: center;
+}
+
+.card-footer-left {
+	text-align: left;
+	margin-top: auto;
+}
+
+.card-footer-center {
+	text-align: center;
+	margin: auto;
+	margin-top: auto;
+}
+
+.card-footer-right {
+	text-align: right;
+	margin-top: auto;
+}
