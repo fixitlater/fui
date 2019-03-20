@@ -34,7 +34,23 @@
 			}
 		}
 
-		function createElement(elType, firstChild, ...otherChildren) {
+		function getArgsArray(args) {
+			var argsArray = [];
+			if (args)
+			{
+	  			for (var i = 0; i < args.length; i++)
+				{
+					argsArray[i] = args[i];
+				}
+			}
+			return argsArray;
+		}
+
+		function createElement(elType) {
+			var args = getArgsArray(arguments[1]);
+			var firstChild = args[0];
+			var otherChildren = args.slice(1);
+
 			var el = document.createElement(elType);
 
 			handleChild(el, firstChild);
@@ -133,37 +149,37 @@
 		}
 
 		return {
-			a: function(...args) { return createElement('a', ...args); },
-			button: function(...args) { return createElement('button', ...args); },
-			canvas: function(...args) { return createElement('canvas', ...args); },
-			div: function(...args) { return createElement('div', ...args); },
-			h1: function(...args) { return createElement('h1', ...args); },
-			h2: function(...args) { return createElement('h2', ...args); },
-			h3: function(...args) { return createElement('h3', ...args); },
-			h4: function(...args) { return createElement('h4', ...args); },
-			h5: function(...args) { return createElement('h5', ...args); },
-			h6: function(...args) { return createElement('h6', ...args); },
-			header: function(...args) { return createElement('header', ...args); },
-			i: function(...args) { return createElement('i', ...args); },
-			input: function(...args) { return createElement('input', ...args); },
-			label: function(...args) { return createElement('label', ...args); },
-			li: function(...args) { return createElement('li', ...args); },
-			ol: function(...args) { return createElement('ol', ...args); },
-			optgroup: function(...args) { return createElement('optgroup', ...args); },
-			option: function(...args) { return createElement('option', ...args); },
-			p: function(...args) { return createElement('p', ...args); },
-			pre: function(...args) { return createElement('pre', ...args); },
-			select: function(...args) { return createElement('select', ...args); },
-			span: function(...args) { return createElement('span', ...args); },
-			table: function(...args) { return createElement('table', ...args); },
-			thead: function(...args) { return createElement('thead', ...args); },
-			tbody: function(...args) { return createElement('tbody', ...args); },
-			tfoot: function(...args) { return createElement('tfoot', ...args); },
-			tr: function(...args) { return createElement('tr', ...args); },
-			th: function(...args) { return createElement('th', ...args); },
-			td: function(...args) { return createElement('td', ...args); },
-			ul: function(...args) { return createElement('ul', ...args); }
-		}
+			a: function() { return createElement('a', arguments); },
+			button: function() { return createElement('button', arguments); },
+			canvas: function() { return createElement('canvas', arguments); },
+			div: function() { return createElement('div', arguments); },
+			h1: function() { return createElement('h1', arguments); },
+			h2: function() { return createElement('h2', arguments); },
+			h3: function() { return createElement('h3', arguments); },
+			h4: function() { return createElement('h4', arguments); },
+			h5: function() { return createElement('h5', arguments); },
+			h6: function() { return createElement('h6', arguments); },
+			header: function() { return createElement('header', arguments); },
+			i: function() { return createElement('i', arguments); },
+			input: function() { return createElement('input', arguments); },
+			label: function() { return createElement('label', arguments); },
+			li: function() { return createElement('li', arguments); },
+			ol: function() { return createElement('ol', arguments); },
+			optgroup: function() { return createElement('optgroup', arguments); },
+			option: function() { return createElement('option', arguments); },
+			p: function() { return createElement('p', arguments); },
+			pre: function() { return createElement('pre', arguments); },
+			select: function() { return createElement('select', arguments); },
+			span: function() { return createElement('span', arguments); },
+			table: function() { return createElement('table', arguments); },
+			thead: function() { return createElement('thead', arguments); },
+			tbody: function() { return createElement('tbody', arguments); },
+			tfoot: function() { return createElement('tfoot', arguments); },
+			tr: function() { return createElement('tr', arguments); },
+			th: function() { return createElement('th', arguments); },
+			td: function() { return createElement('td', arguments); },
+			ul: function() { return createElement('ul', arguments); }
+		};
 	}
 
 	if (window.fui === undefined)
