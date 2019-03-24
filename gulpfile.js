@@ -7,11 +7,16 @@ const del = require("del");
 
 var config = {
 	distFolder: "dist",
-	jsFile: "src/js/fui.js",
-	finalName: "fui.js"
+	js: {
+			main: "src/js/fui.js",
+			globals: "src/js/fui.globals.js"
+		},
+	finalName: "fui.js",
+	noConflictName: "fui.nc.js"
 };
+config.js.all = [config.js.main, config.js.globals];
 
-const js = gulp.series(jsLint, jsMinify);
+const js = gulp.series(jsLint, jsBundle, jsNoConflictDist, jsMinify);
 const build = js;
 
 exports.default = gulp.series(clean, build);
@@ -25,16 +30,28 @@ function clean(done) {
 }
 
 function jsLint() {
-	return gulp.src(config.jsFile)
+	return gulp.src(config.js.all)
 				.pipe(jshint())
 				.pipe(jshint.reporter("default"));
 }
 
 function jsMinify() {
-	return gulp.src(config.jsFile)
-				.pipe(gulp.dest(config.distFolder))
-				.pipe(uglify())
+	var sources = config.distFolder + "/*.js";
+
+	return gulp.src(sources)
 				.pipe(rename({ suffix: ".min" }))
+				.pipe(uglify())
 				.pipe(gulp.dest(config.distFolder));
 }
 
+function jsNoConflictDist() {
+	return gulp.src(config.js.main)
+				.pipe(rename(config.noConflictName))
+				.pipe(gulp.dest(config.distFolder));
+}
+
+function jsBundle() {
+	return gulp.src(config.js.all)
+				.pipe(concat(config.finalName))
+				.pipe(gulp.dest(config.distFolder));
+}

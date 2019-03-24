@@ -34,20 +34,8 @@
 			}
 		}
 
-		function getArgsArray(args) {
-			var argsArray = [];
-			if (args)
-			{
-	  			for (var i = 0; i < args.length; i++)
-				{
-					argsArray[i] = args[i];
-				}
-			}
-			return argsArray;
-		}
-
 		function createElement(elType) {
-			var args = getArgsArray(arguments[1]);
+			var args = Array.prototype.slice.call(arguments[1]);
 			var firstChild = args[0];
 			var otherChildren = args.slice(1);
 
@@ -149,6 +137,7 @@
 		}
 
 		return {
+			createElement: function() { return createElement(arguments[0], Array.prototype.slice.call(arguments, 1)); },
 			a: function() { return createElement('a', arguments); },
 			button: function() { return createElement('button', arguments); },
 			canvas: function() { return createElement('canvas', arguments); },
@@ -178,7 +167,8 @@
 			tr: function() { return createElement('tr', arguments); },
 			th: function() { return createElement('th', arguments); },
 			td: function() { return createElement('td', arguments); },
-			ul: function() { return createElement('ul', arguments); }
+			ul: function() { return createElement('ul', arguments); },
+			form: function() { return createElement('form', arguments); }
 		};
 	}
 
