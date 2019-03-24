@@ -12,13 +12,13 @@ HTML
 Javascript
 ```javascript
 function Hello() {
-  return fui.div(
-          fui.button({ onclick: sayHello }, "Click Me!")
-      );
-}
+	function sayHello() {
+	  alert("Hello World!");
+	}
 
-function sayHello() {
-  alert("Hello World!");
+  	return div(
+          button({ onclick: sayHello }, "Click Me!")
+      );
 }
 
 var rootEl = document.getElementById("root");
