@@ -4,7 +4,8 @@ const uglify = require("gulp-uglify");
 const rename = require("gulp-rename");
 const jshint = require("gulp-jshint");
 const del = require("del");
-
+const gzip = require('gulp-gzip');
+ 
 var config = {
 	distFolder: "dist",
 	js: {
@@ -16,7 +17,7 @@ var config = {
 };
 config.js.all = [config.js.main, config.js.globals];
 
-const js = gulp.series(jsLint, jsBundle, jsNoConflictDist, jsMinify);
+const js = gulp.series(jsLint, jsBundle, jsNoConflictDist, jsMinify, jsCompress);
 const build = js;
 
 exports.default = gulp.series(clean, build);
@@ -40,7 +41,7 @@ function jsMinify() {
 
 	return gulp.src(sources)
 				.pipe(rename({ suffix: ".min" }))
-				.pipe(uglify())
+				.pipe(uglify({ compress: { drop_console: true }}))
 				.pipe(gulp.dest(config.distFolder));
 }
 
@@ -53,5 +54,12 @@ function jsNoConflictDist() {
 function jsBundle() {
 	return gulp.src(config.js.all)
 				.pipe(concat(config.finalName))
+				.pipe(gulp.dest(config.distFolder));
+}
+
+function jsCompress() {
+	var sources = config.distFolder + "/*.js";
+	return gulp.src(sources)
+				.pipe(gzip())
 				.pipe(gulp.dest(config.distFolder));
 }
