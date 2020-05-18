@@ -7,19 +7,24 @@
 <body>
 	<div id="root"></div>
 
-  <script src="../src/js/fui.js"></script>
+  <script src="../dist/fui.js"></script>
   <script>
     function Hello() {
-      return fui.div(
-              fui.button({ onclick: sayHello }, "Click Me!")
+      function sayHello() {
+        alert("Hello!");
+      }
+
+      return fui.createElement('div', {style: {border: "1px solid black"}},
+              button({ onclick: sayHello }, "Click Me!"),
+              button({}, "Don't Click")
           );
     }
 
-    function sayHello() {
-      alert("Hello World!");
+    function App() {
+      return div(Hello());
     }
 
     var rootEl = document.getElementById("root");
-    rootEl.appendChild(Hello());
+    rootEl.appendChild(App());
   </script>
 </body>
