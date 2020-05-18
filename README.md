@@ -15,11 +15,18 @@ Download or reference the javascript files in the /dist folder that you need
     * respective gzipped version
 
 ```html
-<!-- development -->
-<script src="path/to/dist/fui.js"></script>
+<!-- DEVELOPMENT fui.js -->
 
-<!-- production -->
+<script src="local/path/to/dist/fui.js"></script>
+<!-- or -->
+<script src="https://cdn.jsdelivr.net/gh/fixitlater/fui/dist/fui.js"></script>
+
+
+<!-- PRODUCTION fui.min.js -->
+
 <script src="path/to/dist/fui.min.js"></script>
+<!-- or -->
+<script src="https://cdn.jsdelivr.net/gh/fixitlater/fui/dist/fui.min.js"></script>
 ```
 
 ## Usage
